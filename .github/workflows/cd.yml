@@ -5,17 +5,24 @@ on:
     branches:
       - main
 
+name: CD Workflow
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   my-job-cd:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Use SSH key
         run: |
           mkdir -p ~/.ssh/
-          echo "${{secrets.SSH}}" > ~/.ssh/id_rsa
+          echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_rsa
           sudo chmod 600 ~/.ssh
 
       - name: Git config
