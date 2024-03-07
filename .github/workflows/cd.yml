@@ -4,14 +4,6 @@ on:
   push:
     branches:
       - main
-
-name: CD Workflow
-
-on:
-  push:
-    branches:
-      - main
-
 jobs:
   my-job-cd:
     runs-on: ubuntu-latest
